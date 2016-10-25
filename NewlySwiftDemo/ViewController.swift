@@ -33,19 +33,16 @@ let networkUrl = "http://localhost:3000/hello"
 //let header = ["":""]
 let header: [String: String]? = nil
 class NetworkWrapper: NSObject {
-    
-    
     static let defaultWrapper = NetworkWrapper()
-    
-    private override init() {
-    }
-    
+    private override init() {}
     
     func Get(parameters: Parameters?) {
         Alamofire.request(networkUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: header).responseObject { (response: DataResponse<BaseResponse>?) in
             print(response?.debugDescription)
             let user = response?.result.value?.user
             print("user:" + "\(user)")
+        
+        
         }
     }
 }
