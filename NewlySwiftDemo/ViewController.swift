@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
 
 
-let networkUrl = "http://localhost:3000/hello"
+let networkUrl = "http://169.254.230.246:3000/"
 //let header = ["":""]
 let header: [String: String]? = nil
 class NetworkWrapper: NSObject {
@@ -38,7 +38,6 @@ class NetworkWrapper: NSObject {
     
     func Get(parameters: Parameters?) {
         Alamofire.request(networkUrl, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: header).responseObject { (response: DataResponse<BaseResponse>?) in
-            print(response?.debugDescription)
             let user = response?.result.value?.user
             print("user:" + "\(user)")
         
@@ -46,6 +45,8 @@ class NetworkWrapper: NSObject {
         }
     }
 }
+
+
 
 class BaseResponse: Mappable {
     required init?(map: Map) {

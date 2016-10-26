@@ -6,9 +6,8 @@ target 'NewlySwiftDemo' do
   use_frameworks!
 
   # Pods for NewlySwiftDemo
-  pod 'Alamofire', '~> 4.0.1'
   pod 'AlamofireObjectMapper', '~> 4.0.0'
-
+  pod 'Moya', '8.0.0-beta.2'
   target 'NewlySwiftDemoTests' do
     inherit! :search_paths
     # Pods for testing
